@@ -32,6 +32,9 @@
       <subChainSwapMoveSelector>
         <selectReversingMoveToo>true</selectReversingMoveToo>
       </subChainSwapMoveSelector>
+      <moveListFactory>
+          <moveListFactoryClass>org.optaplanner.examples.vehiclerouting.domain.CustomMoveFactory</moveListFactoryClass>
+      </moveListFactory>
     </unionMoveSelector>
     <acceptor>
       <lateAcceptanceSize>200</lateAcceptanceSize>
