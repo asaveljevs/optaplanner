@@ -42,6 +42,7 @@ public class CustomMoveFactory implements MoveListFactory<VehicleRoutingSolution
                 Customer afterPivot = pivot.getNextCustomer();
 
                 director.beforeEntityAdded(customer);
+                director.getWorkingSolution().getCustomerList().add(customer);
                 director.afterEntityAdded(customer);
 
                 director.beforeVariableChanged(customer, "previousStandstill");
@@ -68,6 +69,7 @@ public class CustomMoveFactory implements MoveListFactory<VehicleRoutingSolution
                 }
 
                 director.beforeEntityRemoved(customer);
+                director.getWorkingSolution().getCustomerList().remove(customer);
                 director.afterEntityRemoved(customer);
             }
             else
