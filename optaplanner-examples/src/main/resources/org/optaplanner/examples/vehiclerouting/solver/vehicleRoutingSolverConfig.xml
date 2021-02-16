@@ -27,15 +27,19 @@
   </constructionHeuristic>
   <localSearch>
     <unionMoveSelector>
-      <changeMoveSelector/>
-      <swapMoveSelector/>
-      <subChainChangeMoveSelector>
-        <selectReversingMoveToo>true</selectReversingMoveToo>
-      </subChainChangeMoveSelector>
-      <subChainSwapMoveSelector>
-        <selectReversingMoveToo>true</selectReversingMoveToo>
-      </subChainSwapMoveSelector>
-      <!-- TODO use nearby selection to scale out -->
+      <changeMoveSelector>
+        <entitySelector id="entitySelector1">
+            <entityClass>org.optaplanner.examples.vehiclerouting.domain.Customer</entityClass>
+            <filterClass>org.optaplanner.examples.vehiclerouting.domain.solver.CustomerChangeFilter</filterClass>
+        </entitySelector>
+        <valueSelector>
+          <nearbySelection>
+            <originEntitySelector mimicSelectorRef="entitySelector1"/>
+            <nearbyDistanceMeterClass>org.optaplanner.examples.vehiclerouting.domain.solver.nearby.CustomerNearbyDistanceMeter</nearbyDistanceMeterClass>
+            <parabolicDistributionSizeMaximum>40</parabolicDistributionSizeMaximum>
+          </nearbySelection>
+        </valueSelector>
+      </changeMoveSelector>
     </unionMoveSelector>
     <acceptor>
       <lateAcceptanceSize>200</lateAcceptanceSize>

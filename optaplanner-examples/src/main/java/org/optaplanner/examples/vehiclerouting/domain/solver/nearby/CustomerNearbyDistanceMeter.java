@@ -29,6 +29,7 @@ public class CustomerNearbyDistanceMeter implements NearbyDistanceMeter<Customer
         //        if (origin instanceof TimeWindowedCustomer && destination instanceof TimeWindowedCustomer) {
         //            distance += ((TimeWindowedCustomer) origin).getTimeWindowGapTo((TimeWindowedCustomer) destination);
         //        }
+        System.out.println("CustomerNearbyDistanceMeter.getNearbyDistance(" + origin + ", " + destination + ") -> " + distance);
         return distance;
     }
 
